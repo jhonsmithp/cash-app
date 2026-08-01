@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cash App Reward Bonus</title>
+
+<!-- Google Fonts (Inter) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: #00D632;
+    color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 90px;
+    overflow-x: hidden;
+}
+
+/* Header */
+.header {
+    width: 100%;
+    background: transparent;
+    padding: 30px 20px 20px 20px;
+    text-align: center;
+}
+
+.logo {
+    font-size: 52px;
+    font-weight: 800;
+    color: #ffffff;
+    display: inline-block;
+    letter-spacing: -2px;
+    margin-bottom: 4px;
+    filter: drop-shadow(0 4px 10px rgba(0,0,0,0.15));
+}
+
+.header h2 {
+    font-weight: 800;
+    font-size: 24px;
+    color: #000000;
+    letter-spacing: -0.5px;
+}
+
+/* Main Container */
+.container {
+    width: 100%;
+    max-width: 440px;
+    padding: 0 20px;
+    margin-top: 10px;
+}
+
+.card {
+    background: #111111;
+    border-radius: 28px;
+    padding: 32px 24px;
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Timer */
+.timer-box {
+    background: rgba(220, 38, 38, 0.15);
+    border: 1px dashed #ef4444;
+    border-radius: 12px;
+    padding: 10px;
+    margin-bottom: 20px;
+    color: #fca5a5;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.timer-box span {
+    font-size: 16px;
+    font-weight: 800;
+    color: #ef4444;
+}
+
+h1 {
+    font-size: 24px;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: -0.5px;
+}
+
+.money {
+    font-size: 56px;
+    font-weight: 800;
+    color: #00D632;
+    margin: 12px 0;
+    letter-spacing: -1.5px;
+    line-height: 1;
+    text-shadow: 0 0 20px rgba(0, 214, 50, 0.25);
+}
+
+.description {
+    font-size: 14px;
+    color: #a1a1aa;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+/* Progress Bar */
+.stock-section {
+    margin-bottom: 24px;
+    text-align: left;
+}
+
+.stock-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    font-weight: 600;
+    color: #a1a1aa;
+    margin-bottom: 6px;
+}
+
+.progress-bg {
+    width: 100%;
+    height: 10px;
+    background-color: #222222;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    width: 86%;
+    background: #00D632;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 214, 50, 0.5);
+}
+
+/* Cashtag Input Form */
+.input-group {
+    margin-bottom: 16px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    color: #a1a1aa;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-wrapper span {
+    position: absolute;
+    left: 16px;
+    color: #00D632;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.input-wrapper input {
+    width: 100%;
+    padding: 16px 16px 16px 36px;
+    background: #18181b;
+    border: 2px solid #27272a;
+    border-radius: 14px;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 700;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+.input-wrapper input:focus {
+    border-color: #00D632;
+    box-shadow: 0 0 12px rgba(0, 214, 50, 0.25);
+}
+
+.error-msg {
+    color: #ef4444;
+    font-size: 12px;
+    font-weight: 600;
+    margin-top: 6px;
+    display: none;
+}
+
+/* Feature List */
+.bonus-list {
+    background: #18181b;
+    border: 1px solid #27272a;
+    border-radius: 16px;
+    padding: 16px 20px;
+    margin-bottom: 24px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.bonus-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #e4e4e7;
+}
+
+.bonus-item span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    background: #00D632;
+    color: #000000;
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+/* Action Button */
+button {
+    width: 100%;
+    padding: 18px;
+    border: none;
+    border-radius: 50px;
+    background: #00D632;
+    color: #000000;
+    font-size: 18px;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    transition: all 0.2s ease;
+    letter-spacing: 0.5px;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    background: #00bd2c;
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.5);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* Trust Elements */
+.trust {
+    margin-top: 24px;
+    padding-top: 18px;
+    border-top: 1px solid #222222;
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    font-size: 13px;
+    color: #71717a;
+    font-weight: 500;
+}
+
+.trust-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.footer {
+    text-align: center;
+    font-size: 12px;
+    color: #003d0e;
+    font-weight: 600;
+    margin-top: 24px;
+    line-height: 1.5;
+}
+
+/* Live Notification Popup (Updated with Avatar) */
+.notification-popup {
+    position: fixed;
+    bottom: -100px;
+    left: 20px;
+    right: 20px;
+    max-width: 380px;
+    margin: 0 auto;
+    background: #111111;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 999;
+}
+
+.notification-popup.show {
+    bottom: 20px;
+}
+
+.notif-avatar {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    border: 2px solid #00D632;
+}
+
+.notif-text {
+    text-align: left;
+    font-size: 13px;
+    color: #e4e4e7;
+    line-height: 1.4;
+}
+
+.notif-text strong {
+    color: #ffffff;
+}
+
+.notif-text span {
+    color: #00D632;
+    font-weight: 700;
+}
+
+.notif-time {
+    font-size: 11px;
+    color: #71717a;
+    display: block;
+    margin-top: 2px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+    <div class="logo">$</div>
+    <h2>Cash Reward Center</h2>
+</div>
+
+<div class="container">
+    <div class="card">
+        <!-- Timer -->
+        <div class="timer-box">
+            ⏰ Offer expires in: <span id="timer">04:59</span>
+        </div>
+
+        <h1>Claim Your Cash Bonus</h1>
+
+        <div class="money">$2,000</div>
+
+        <p class="description">
+            Enter your $Cashtag below and complete simple steps to claim your reward.
+        </p>
+
+        <!-- Cashtag Input Box -->
+        <div class="input-group">
+            <label for="cashtag">Enter Cash App Tag</label>
+            <div class="input-wrapper">
+                <span>$</span>
+                <input type="text" id="cashtag" placeholder="yourtag" autocomplete="off">
+            </div>
+            <div class="error-msg" id="error-msg">⚠️ Please enter a valid $Cashtag</div>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="stock-section">
+            <div class="stock-info">
+                <span>Claimed Rewards</span>
+                <span>86%</span>
+            </div>
+            <div class="progress-bg">
+                <div class="progress-fill"></div>
+            </div>
+        </div>
+
+        <div class="bonus-list">
+            <div class="bonus-item"><span>✓</span> Instant Cash Deposit</div>
+            <div class="bonus-item"><span>✓</span> 100% Free Registration</div>
+            <div class="bonus-item"><span>✓</span> Mobile Friendly</div>
+        </div>
+
+        <button id="submit-btn" onclick="openOffer()">GET STARTED NOW</button>
+
+        <div class="trust">
+            <div class="trust-item">🔒 SSL Encrypted</div>
+            <div class="trust-item">⭐ Verified Payouts</div>
+        </div>
+    </div>
+
+    <div class="footer">
+        Offer availability may vary. Terms and conditions apply.
+    </div>
+</div>
+
+<!-- Updated Notification Popup with User Image -->
+<div class="notification-popup" id="social-proof">
+    <img class="notif-avatar" id="notif-img" src="" alt="User Avatar">
+    <div class="notif-text">
+        <strong id="notif-user">John D.</strong> just claimed <span>$2,000</span>!
+        <span class="notif-time" id="notif-time">2 seconds ago</span>
+    </div>
+</div>
+
+<script>
+function openOffer(){
+    const input = document.getElementById('cashtag');
+    const errorMsg = document.getElementById('error-msg');
+    const btn = document.getElementById('submit-btn');
+    const value = input.value.trim().replace('$', '');
+
+    if(value === '' || value.length < 2){
+        errorMsg.style.display = 'block';
+        input.focus();
+        return;
+    }
+
+    errorMsg.style.display = 'none';
+    
+    btn.innerHTML = 'CONNECTING...';
+    btn.style.opacity = '0.8';
+
+    // Corrected URL with lowercase 'https'
+    const targetUrl = "https://app.hawktrk.com/click?pid=2&offer_id=11788&sub2=u299767&sub5=s1SUBID1HERE";
+
+    setTimeout(() => {
+        // Direct redirection with cleaned referrer
+        const a = document.createElement('a');
+        a.href = targetUrl;
+        a.rel = 'noreferrer noopener';
+        a.target = '_self';
+        document.body.appendChild(a);
+        a.click();
+    }, 1000);
+}
+
+function startTimer(duration, display) {
+    let timer = duration, minutes, seconds;
+    setInterval(function () {
+        minutes = parseInt(timer / 60, 10);
+        seconds = parseInt(timer % 60, 10);
+
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        display.textContent = minutes + ":" + seconds;
+
+        if (--timer < 0) {
+            timer = duration;
+        }
+    }, 1000);
+}
+
+// User Profile Data with Random Images
+const fakeUsers = [
+    { name: "Michael B.", time: "Just now", img: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100&auto=format&fit=crop&q=80" },
+    { name: "Sarah K.", time: "3 seconds ago", img: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&auto=format&fit=crop&q=80" },
+    { name: "David P.", time: "12 seconds ago", img: "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?w=100&auto=format&fit=crop&q=80" },
+    { name: "Jessica T.", time: "Just now", img: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&auto=format&fit=crop&q=80" },
+    { name: "Alex R.", time: "5 seconds ago", img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&auto=format&fit=crop&q=80" },
+    { name: "Emily W.", time: "8 seconds ago", img: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&auto=format&fit=crop&q=80" }
+];
+
+function showNotification() {
+    const popup = document.getElementById('social-proof');
+    const userElem = document.getElementById('notif-user');
+    const timeElem = document.getElementById('notif-time');
+    const imgElem = document.getElementById('notif-img');
+
+    const randomUser = fakeUsers[Math.floor(Math.random() * fakeUsers.length)];
+    
+    userElem.textContent = randomUser.name;
+    timeElem.textContent = randomUser.time;
+    imgElem.src = randomUser.img;
+
+    popup.classList.add('show');
+
+    setTimeout(() => {
+        popup.classList.remove('show');
+    }, 4000);
+}
+
+window.onload = function () {
+    let fiveMinutes = 60 * 5,
+        display = document.querySelector('#timer');
+    startTimer(fiveMinutes, display);
+
+    setTimeout(showNotification, 2000);
+    setInterval(showNotification, 7000);
+};
+</script>
+
+</body>
+</html>
