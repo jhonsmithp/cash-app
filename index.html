@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cash App Reward Bonus</title>
+<title>American Quotes Club - Cash App Reward</title>
 
-<!-- Google Fonts (Inter) -->
+<!-- Google Fonts (Inter & Montserrat) -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
 
 <style>
 * {
@@ -33,8 +33,53 @@ body {
 .header {
     width: 100%;
     background: transparent;
-    padding: 30px 20px 20px 20px;
+    padding: 24px 20px 10px 20px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Stylish Brand Logo / Badge Area */
+.brand-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(0, 0, 0, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 8px 18px;
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    margin-bottom: 12px;
+    backdrop-filter: blur(5px);
+}
+
+.brand-icon {
+    width: 24px;
+    height: 24px;
+    background: #00D632;
+    color: #000000;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 900;
+    box-shadow: 0 0 8px rgba(0, 214, 50, 0.6);
+}
+
+.brand-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+}
+
+.brand-verified {
+    color: #00D632;
+    font-size: 12px;
 }
 
 .logo {
@@ -301,7 +346,7 @@ button:active {
     line-height: 1.5;
 }
 
-/* Live Notification Popup (Updated with Avatar) */
+/* Live Notification Popup */
 .notification-popup {
     position: fixed;
     bottom: -100px;
@@ -362,6 +407,13 @@ button:active {
 <body>
 
 <div class="header">
+    <!-- Redesigned Brand Logo & Badge -->
+    <div class="brand-badge">
+        <div class="brand-icon">★</div>
+        <span class="brand-text">American Quotes Club</span>
+        <span class="brand-verified">✔</span>
+    </div>
+    
     <div class="logo">$</div>
     <h2>Cash Reward Center</h2>
 </div>
@@ -421,7 +473,7 @@ button:active {
     </div>
 </div>
 
-<!-- Updated Notification Popup with User Image -->
+<!-- Notification Popup -->
 <div class="notification-popup" id="social-proof">
     <img class="notif-avatar" id="notif-img" src="" alt="User Avatar">
     <div class="notif-text">
@@ -448,11 +500,9 @@ function openOffer(){
     btn.innerHTML = 'CONNECTING...';
     btn.style.opacity = '0.8';
 
-    // Corrected URL with lowercase 'https'
     const targetUrl = "https://app.hawktrk.com/click?pid=2&offer_id=11788&sub2=u299767&sub5=s1SUBID1HERE";
 
     setTimeout(() => {
-        // Direct redirection with cleaned referrer
         const a = document.createElement('a');
         a.href = targetUrl;
         a.rel = 'noreferrer noopener';
@@ -479,7 +529,6 @@ function startTimer(duration, display) {
     }, 1000);
 }
 
-// User Profile Data with Random Images
 const fakeUsers = [
     { name: "Michael B.", time: "Just now", img: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100&auto=format&fit=crop&q=80" },
     { name: "Sarah K.", time: "3 seconds ago", img: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&auto=format&fit=crop&q=80" },
